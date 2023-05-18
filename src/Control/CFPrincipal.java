@@ -27,7 +27,7 @@ public class CFPrincipal implements ActionListener {
                 break;
             case "Ventana2":
                 Ventana2 v2 = new Ventana2();
-                CFP2 c2 = new CFP2();
+                CFP2 c2 = new CFP2(v2);
                 v2.setOidor(c2);
                 v2.setVisible(true);
                 break;
@@ -37,8 +37,6 @@ public class CFPrincipal implements ActionListener {
                 v3.setOidor(c3);
                 v3.setVisible(true);
                 break;
-            default:
-                throw new AssertionError();
         }
     }
 
