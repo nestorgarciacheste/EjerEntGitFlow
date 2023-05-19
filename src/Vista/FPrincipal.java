@@ -18,6 +18,7 @@ public class FPrincipal extends javax.swing.JFrame {
      */
     public FPrincipal() {
         initComponents();
+        setLocationRelativeTo(this);
     }
 
     /**

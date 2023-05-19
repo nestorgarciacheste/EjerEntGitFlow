@@ -9,10 +9,10 @@ import org.testng.annotations.Test;
 
 /**
  *
- * @author DeniseGT
+ * @author alumno
  */
 public class ParImparNGTest {
-
+    
     /**
      * Test of Par method, of class ParImpar.
      */
@@ -80,5 +80,5 @@ public class ParImparNGTest {
         // TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");
     }
-
+    
 }

@@ -4,10 +4,7 @@
  */
 package Vista;
 
-import Control.CFP2;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.lang.NumberFormatException;
 import oovv.Maex;
 
 /**
@@ -21,6 +18,7 @@ public class Ventana2 extends javax.swing.JFrame {
      */
     public Ventana2() {
         initComponents();
+        setLocationRelativeTo(this);
     }
 
     /**
@@ -39,7 +37,7 @@ public class Ventana2 extends javax.swing.JFrame {
         ENVIAR = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         tfNums.setActionCommand("EnviarNumeros");
 

@@ -31,7 +31,7 @@ public class CFP1 implements ActionListener{
                 String cad = finestra.getTextArea();
                 int[] ordenada = null;
             try {
-                ordenada = OrdenaArray.ordenar(cad.split(" "));
+                ordenada = OrdenaArray.ordenar(cad.split(","));
             } catch (Maex ex) {
                 Logger.getLogger(CFP1.class.getName()).log(Level.SEVERE, null, ex);
             }
