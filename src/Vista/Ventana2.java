@@ -4,7 +4,8 @@
  */
 package Vista;
 
-import Control.CFP2;
+import java.awt.event.ActionListener;
+import oovv.Maex;
 
 /**
  *
@@ -17,6 +18,7 @@ public class Ventana2 extends javax.swing.JFrame {
      */
     public Ventana2() {
         initComponents();
+        setLocationRelativeTo(this);
     }
 
     /**
@@ -28,17 +30,64 @@ public class Ventana2 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        tfNums = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        taPantalla = new javax.swing.JTextArea();
+        ENVIAR = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        tfNums.setActionCommand("EnviarNumeros");
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setText("Introduce 10 números");
+
+        taPantalla.setEditable(false);
+        taPantalla.setColumns(20);
+        taPantalla.setRows(5);
+        jScrollPane1.setViewportView(taPantalla);
+
+        ENVIAR.setText("Enviar");
+
+        jLabel2.setText("(separados por comas)");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tfNums, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel1))
+                    .addComponent(ENVIAR))
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 21, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jScrollPane1)
+                .addGap(56, 56, 56))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(109, 109, 109)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(tfNums, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(ENVIAR)
+                .addContainerGap(116, Short.MAX_VALUE))
         );
 
         pack();
@@ -79,10 +128,36 @@ public class Ventana2 extends javax.swing.JFrame {
         });
     }
 
-    public void setOidor(CFP2 c2) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void setOidor(ActionListener c) {
+        ENVIAR.addActionListener(c);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ENVIAR;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea taPantalla;
+    private javax.swing.JTextField tfNums;
     // End of variables declaration//GEN-END:variables
+
+    public int[] getArray() throws Maex {
+        String[] numerosTexto = tfNums.getText().split(",");
+        int[] numeros = new int[numerosTexto.length];
+
+        for (int i = 0; i < numerosTexto.length; i++) {
+            try {
+                numeros[i] = Integer.parseInt(numerosTexto[i]);
+            } catch (NumberFormatException e) {
+                throw new Maex("Solo puedes introducir valores numéricos");
+            }
+        }
+
+        return numeros;
+    }
+
+    public void muestraInfo(String t) {
+        taPantalla.append(t);
+    }
+
 }
